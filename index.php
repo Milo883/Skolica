@@ -6,22 +6,27 @@
 	if (!isset($_SESSION['loggedIn'])){		
 		$_SESSION['loggedIn']=false;
 	}
-<!DOCTYPE html>
-<html>	
-<head>
-<title>Homepage</title>
-<meta charset="UTF-8">
-<link rel="styleseet" type="text/css" href="css/style.css">
-</head>
+	
 	if (isset($_POST['username'])){
 		logIn($_POST['username'], $_POST['password']);
 	}
 	
 	if (isloggedIn()) {
-		header("Location: /Milo/user.php");
+		header("Location: /Skolica/user.php");
 	}
+	
+?>
+<!DOCTYPE html>
+<html>	
+	<head>
+	<title>Skolica</title>
+	<meta charset="UTF-8">
+	<link rel="styleseet" type="text/css" href="log_in.css">
+	</head>
+<?php
+	
 	if(isset($_GET['msg']) && (strlen($_GET['msg'])> 0 )) {
-	echo 'Nemate Pristup Stranicii !!!';
+		echo 'Nemate Pristup Stranicii !!!';
 	}
 ?>
 

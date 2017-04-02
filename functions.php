@@ -1,7 +1,7 @@
 <?php
-	logOut();
-//populateStorage();
-//die();
+	//logOut();
+	//populateStorage();
+	//die();
 
 	function logOut () {
 		unset($_SESSION['loggedIn']);
@@ -12,6 +12,16 @@
 		if ($_SESSION['loggedIn']) {
 			return true;
 		}
+		return false;
+	}
+	function searchUser($keyword) {
+		$users = getUsers();
+		foreach($users as $user){
+			if ($keyword === $user->username) {
+				return true;
+			}
+		}
+		
 		return false;
 	}
 	function logIn($username, $password) {
